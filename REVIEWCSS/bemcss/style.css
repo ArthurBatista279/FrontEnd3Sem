@@ -43,7 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: rgb(139, 139, 139);
     /*border: 1px solid white;*/
     border-radius: 50%
 }

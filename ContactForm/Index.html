@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactForm</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container container--flex--column">
+        <img class="header__logo" src="./images/Vector.svg" alt="card-perfil" />
+        <h1 class="header__title">Contact Form</h1>
+        <p class="header__text">
+          Insira os dados do contato e clique em cadastrar!
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <form class="contact-form" action="">
+          <div class="contact-form__linha">
+            <div class="contact-form__col-a">
+              <label class="contact-form__label" for="nome">Nome</label>
+            </div>
+
+            <div class="contact-form__col-b">
+              <input
+                class="contact-form__input--metade contact-form__input"
+                name="nome"
+                id="nome"
+                placeholder="Nome"
+                type="text"
+              />
+
+              <input
+                class="contact-form__input--metade contact-form__input"
+                name="sobrenome"
+                id="sobrenome"
+                placeholder="Sobrenome"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div class="contact-form__linha">
+            <div class="contact-form__col-a">
+              <label class="contact-form__label" for="email">Email</label>
+            </div>
+
+            <div class="contact-form__col-b">
+              <input
+                class="contact-form__input--inteiro contact-form__input"
+                name="email"
+                id="email"
+                placeholder="ex: exemplo@email.com"
+                type="email"
+              />
+            </div>
+          </div>
+          <div class="contact-form__linha">
+            <div class="contact-form__col-a">
+              <label class="contact-form__label" for="telefone">Telefone</label>
+            </div>
+
+            <div class="contact-form__col-b">
+              <input
+                class="contact-form__input--terco contact-form__input"
+                name="pais"
+                id="pais"
+                placeholder="+55"
+                type="pais"
+              />
+
+              <input
+                class="contact-form__input--terco contact-form__input"
+                name="ddd"
+                id="ddd"
+                placeholder="ddd"
+                type="ddd"
+              />
+
+              <input
+                class="contact-form__input--terco contact-form__input"
+                name="telefone"
+                id="telefone"
+                placeholder="00000-0000"
+                type="telefone"
+              />
+            </div>
+          </div>
+
+          <div class="contact-form__linha">
+            <div class="contact-form__col-a">
+              <label class="contact-form__label" for="cep">Endereço</label>
+            </div>
+
+            <div class="contact-form__col-b">
+              <input
+                class="contact-form__input--cep contact-form__input"
+                name="cep"
+                id="cep"
+                placeholder="Cep"
+                type="text"
+              />
+
+              <input
+                class="contact-form__input--rua contact-form__input"
+                name="rua"
+                id="rua"
+                placeholder="Rua La de casa"
+                type="text"
+              />
+
+              <input
+                class="contact-form__input--num contact-form__input"
+                name="numero"
+                id="numero"
+                placeholder="ex: 555"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div class="contact-form__linha">
+            <div class="contact-form__col-a"></div>
+
+            <div class="contact-form__col-b">
+              <input
+                class="contact-form__input--terco contact-form__input"
+                name="apto"
+                id="apto"
+                placeholder="Apto"
+                type="text"
+              />
+
+              <input
+                class="contact-form__input--terco contact-form__input"
+                name="bairro"
+                id="bairro"
+                placeholder="Bairro"
+                type="text"
+              />
+
+              <input
+                class="contact-form__input--terco contact-form__input"
+                name="cidade"
+                id="cidade"
+                placeholder="Cidade"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div class="contact-form__linha">
+            <div class="contact-form__col-a"></div>
+
+            <div class="contact-form__col-b">
+              <input
+                class="contact-form__input--terco contact-form__input"
+                name="estado"
+                id="estado"
+                placeholder="Estado"
+                type="text"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
