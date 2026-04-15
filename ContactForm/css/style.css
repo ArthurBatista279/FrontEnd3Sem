@@ -23,6 +23,7 @@ body {
 }
 
 .container {
+  padding: 0 15px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -133,7 +134,6 @@ select.contact-form__input {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
@@ -143,27 +143,59 @@ select.contact-form__input {
   transform: translateY(-2px);
 }
 
-/* BreakPoints */
+/* Tablet */
 @media screen and (max-width: 991px) {
+  .container {
+    padding: 0 15px;
+  }
   .contact-form__col-a {
+    padding: 0 6%;
     width: 20%;
   }
   .contact-form__col-b {
     width: 80%;
   }
+
+  .header__title {
+    font-size: 1.5rem;
+  }
+  .header__text,
+  .contact-form__label {
+    font-size: 12px;
+  }
 }
 
+/* Mobile */
 @media screen and (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header__logo {
+    width: 140px;
+  }
+
+  .header__text {
+    font-size: 1.15rem;
+  }
+
   .contact-form__linha {
     flex-direction: column;
   }
+
+  .contact-form {
+    padding: 20px 0;
+  }
+
   .contact-form__col-a,
   .contact-form__col-b {
     width: 100%;
   }
+
   .contact-form__col-a {
-    margin-bottom: 5px;
+    display: none;
   }
+
   .contact-form__input--metade,
   .contact-form__input--terco,
   .contact-form__input--cep,
@@ -172,7 +204,11 @@ select.contact-form__input {
     width: 100%;
     margin-bottom: 10px;
   }
+
   .contact-form__col-b {
     flex-direction: column;
+  }
+  .contact-form__btn:first-of-type {
+    margin-bottom: 15px;
   }
 }
