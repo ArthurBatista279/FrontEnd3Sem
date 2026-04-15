@@ -12,7 +12,7 @@
 
 body {
   background-image: linear-gradient(to right bottom, #c300ff, #53055c);
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-repeat: no-repeat;
   min-height: 100vh;
   font-family: OpenSans, sans-serif;
@@ -47,7 +47,7 @@ body {
 }
 
 .header__text {
-  color: #fff; 
+  color: #fff;
   font-weight: 300;
 }
 
@@ -72,12 +72,24 @@ body {
   width: 90%;
 }
 
-.contact-form__input--metade { width: 49%; }
-.contact-form__input--inteiro { width: 100%; }
-.contact-form__input--terco { width: 32%; }
-.contact-form__input--cep { width: 20%; }
-.contact-form__input--rua { width: 56%; }
-.contact-form__input--num { width: 20%; }
+.contact-form__input--metade {
+  width: 49%;
+}
+.contact-form__input--inteiro {
+  width: 100%;
+}
+.contact-form__input--terco {
+  width: 32%;
+}
+.contact-form__input--cep {
+  width: 20%;
+}
+.contact-form__input--rua {
+  width: 56%;
+}
+.contact-form__input--num {
+  width: 20%;
+}
 
 .contact-form__label {
   color: #fff;
@@ -92,7 +104,9 @@ body {
   border: none;
   border-radius: 3px;
   outline: none;
-  transition: background-color 0.4s, color 0.4s;
+  transition:
+    background-color 0.4s,
+    color 0.4s;
 }
 
 .contact-form__textarea {
@@ -114,7 +128,7 @@ select.contact-form__input {
   background-color: transparent;
   color: #fff;
   border: 2px solid #fff;
-  padding: 2% 18%;
+  padding: 2% 19%;
   border-radius: 4px;
   font-weight: 700;
   cursor: pointer;
@@ -131,21 +145,34 @@ select.contact-form__input {
 
 /* BreakPoints */
 @media screen and (max-width: 991px) {
-  .contact-form__col-a { width: 20%; }
-  .contact-form__col-b { width: 80%; }
+  .contact-form__col-a {
+    width: 20%;
+  }
+  .contact-form__col-b {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 767px) {
-  .contact-form__linha { flex-direction: column; }
-  .contact-form__col-a, .contact-form__col-b { width: 100%; }
-  .contact-form__col-a { margin-bottom: 5px; }
-  .contact-form__input--metade, 
-  .contact-form__input--terco, 
-  .contact-form__input--cep, 
-  .contact-form__input--rua, 
-  .contact-form__input--num { 
-    width: 100%; 
+  .contact-form__linha {
+    flex-direction: column;
+  }
+  .contact-form__col-a,
+  .contact-form__col-b {
+    width: 100%;
+  }
+  .contact-form__col-a {
+    margin-bottom: 5px;
+  }
+  .contact-form__input--metade,
+  .contact-form__input--terco,
+  .contact-form__input--cep,
+  .contact-form__input--rua,
+  .contact-form__input--num {
+    width: 100%;
     margin-bottom: 10px;
   }
-  .contact-form__col-b { flex-direction: column; }
+  .contact-form__col-b {
+    flex-direction: column;
+  }
 }
