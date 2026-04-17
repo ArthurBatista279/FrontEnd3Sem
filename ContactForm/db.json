@@ -1,0 +1,94 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "contatos": [
+    {
+      "id": "1",
+      "nome": "Arthur",
+      "sobrenome": "Batista",
+      "email": "barth@gmail.com"
+    },
+    {
+      "nome": "Edu",
+      "sobrenome": "Costa",
+      "email": "GGMAX@gmail.com",
+      "id": "hBPF28N79JY"
+    },
+    {
+      "nome": "Ivan",
+      "sobrenome": "Da na Van",
+      "email": "IvanDaNaVan@gmail.com",
+      "id": "yFd0odlc38g"
+    },
+    {
+      "nome": "Joaozinho123roblox",
+      "sobrenome": "ProPrey",
+      "email": "JoaozinhoProPreyDuRoblox@gmail.com",
+      "id": "6Df8f0HxY3Q"
+    },
+    {
+      "nome": "Marcos",
+      "sobrenome": "Santos",
+      "email": "MarcosDoSantosQueTorceProSantos@gmail.com",
+      "id": "F-py--1Ujy4"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Teclado Mecânico RGB",
+      "preco": 259.9,
+      "quantidade": 15
+    },
+    {
+      "id": "2",
+      "nome": "Mouse Gamer Wireless",
+      "preco": 120.5,
+      "quantidade": 32
+    },
+    {
+      "nome": "Monitor Gamer",
+      "preco": 958,
+      "quantidade": 7,
+      "id": "ND6S01J21bM"
+    },
+    {
+      "nome": "Fone sem Fio",
+      "preco": 386.9,
+      "quantidade": 7,
+      "id": "axPVcmM_pRc"
+    },
+    {
+      "nome": "Fone com Fio",
+      "preco": 312.9,
+      "quantidade": 7,
+      "id": "zRrHHVtGrxg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

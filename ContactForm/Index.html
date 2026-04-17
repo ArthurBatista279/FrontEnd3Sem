@@ -97,6 +97,8 @@
                 id="cep"
                 placeholder="Cep"
                 type="text"
+                maxlength="9"
+                onblur="buscarEndereco(this.value)"
               />
               <input
                 class="contact-form__input--rua contact-form__input"
@@ -175,8 +177,8 @@
               <button
                 type="button"
                 class="contact-form__btn"
-                onclick="minhaFuncao()"
-              >
+                onclick="validarFormulario()"
+              > 
                 Cadastrar
               </button>
 
@@ -186,95 +188,6 @@
         </form>
       </div>
     </main>
-
-    <script>
-
-  function minhaFuncao() {
-    const campos = [
-      "nome", "sobrenome", "email", "pais", "ddd", 
-      "telefone", "cep", "rua", "numero", "bairro", 
-      "cidade", "estado", "mensagem"
-    ];
-
-    let formularioValido = true;
-
-    campos.forEach(id => {
-      let campo = document.getElementById(id);
-      
-      if (campo.value.trim().length === 0) {
-        formError(id);
-        formularioValido = false;
-      } else {
-        reiniciaBorda(id);
-      }
-    });
-
-    if (formularioValido) {
-      console.log("Boa temos seus dados agora");
-    } else {
-      console.warn("Campo Vazio cara.");
-    }
-
-    function formError(fieldId) {
-      document.getElementById(fieldId).style.border = "2px solid red";
-    }
-
-    function reiniciaBorda(fieldId) {
-      document.getElementById(fieldId).style.border = "1px solid #ccc";
-    }
-
-    return false;
-  }
-    
-   
-  
-    /*
-  function minhaFuncao() {
-    let nome = document.getElementById("nome").value.trim();
-    let sobrenome = document.getElementById("sobrenome").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let pais = document.getElementById("pais").value.trim();
-    let ddd = document.getElementById("ddd").value.trim();
-    let telefone = document.getElementById("telefone").value.trim();
-    let cep = document.getElementById("cep").value.trim();
-    let rua = document.getElementById("rua").value.trim();
-    let numero = document.getElementById("numero").value.trim();
-    let bairro = document.getElementById("bairro").value.trim();
-    let cidade = document.getElementById("cidade").value.trim();
-    let estado = document.getElementById("estado").value.trim();
-    let mensagem = document.getElementById("mensagem").value.trim();
-
-    
-    if (nome == "") { formError("nome"); } else { reiniciaBorda("nome"); }
-    
-    if (sobrenome == "") { formError("sobrenome"); } else { reiniciaBorda("sobrenome"); }
-    
-    if (email == "") { formError("email"); } else { reiniciaBorda("email"); }
-    
-    if (pais == "") { formError("pais"); } else { reiniciaBorda("pais"); }
-    if (ddd == "") { formError("ddd"); } else { reiniciaBorda("ddd"); }
-    if (telefone == "") { formError("telefone"); } else { reiniciaBorda("telefone"); }
-    
-    if (cep == "") { formError("cep"); } else { reiniciaBorda("cep"); }
-    if (rua == "") { formError("rua"); } else { reiniciaBorda("rua"); }
-    if (numero == "") { formError("numero"); } else { reiniciaBorda("numero"); }
-    if (bairro == "") { formError("bairro"); } else { reiniciaBorda("bairro"); }
-    if (cidade == "") { formError("cidade"); } else { reiniciaBorda("cidade"); }
-    if (estado == "") { formError("estado"); } else { reiniciaBorda("estado"); }
-    
-    if (mensagem == "") { formError("mensagem"); } else { reiniciaBorda("mensagem"); }
-
-    function formError(id) {
-      document.getElementById(id).style.border = "2px solid red";
-    }
-
-    function reiniciaBorda(id) {
-      document.getElementById(id).style.border = "1px solid #ccc";
-    }
-
-    return false;
-  }*/
-</script>
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
