@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1 id="titulo">Olá Mundo</h1>
+    <h2>Hello DOM JS</h2>
+    <button onclick="saudacao()">PT-BR</button>
+    <button ondblclick="saudacaoLegal()">ENG</button>
+    <button onmousedown="saudacao()">PT-BR</button>
+    <button onmouseup="saudacaoLegal()">ENG</button>
+    <button onmouseover="saudacaoLegal()">PT-BR</button>
+
+    <script>
+      alert(`titulo: ${document.getElementById("titulo").textContent}`);
+
+      function saudacao() {
+        alert("Olá Mundo!");
+      }
+      function saudacaoLegal() {
+        alert("Hello World!");
+      }
+    </script>
+  </body>
+</html>
