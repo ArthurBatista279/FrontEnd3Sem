@@ -9,5 +9,23 @@
       "id": "QAVBk33wQ7I"
     }
   ],
+  "imc": [
+    {
+      "nome": "Arthur",
+      "altura": 1.8,
+      "peso": 80,
+      "imc": "24.69",
+      "situacao": "Saudável",
+      "id": "-3M0Q9RdcjM"
+    },
+    {
+      "nome": "ivan",
+      "altura": 1.7,
+      "peso": 88,
+      "imc": "30.45",
+      "situacao": "Obesidade Grau I",
+      "id": "HVipoLUbDEo"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
