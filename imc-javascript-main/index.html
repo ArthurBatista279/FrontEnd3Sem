@@ -1,54 +1,131 @@
-<!doctype html>
-<html lang="pt-br">
+﻿<!doctype html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Formulários</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Cadastro de IMC</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
-    <h1>Cadastro IMC >></h1>
-    <form>
-      <fieldset>
-        <legend>Cadastro</legend>
+    <main class="page">
+      <header class="hero">
+        <p class="hero__eyebrow">Frontend 3º semestre</p>
+        <h1>Cadastro de IMC</h1>
+        <p class="hero__text">
+          Preencha o formulário para calcular o índice de massa corporal e
+          salvar o resultado no json-server.
+        </p>
+      </header>
 
-        <input type="text" value="" id="nome" placeholder="Nome" />
-        <input
-          type="number"
-          value=""
-          id="altura"
-          placeholder="Altura em Metros ex 1.67"
-        />
-        <input type="number" value="" id="peso" placeholder="Peso em Quilos" />
-        <button type="button" onclick="calcular()">Calcular</button>
-        <button type="reset">Limpar</button>
-      </fieldset>
-    </form>
-    <section>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Altura</th>
-            <th>Peso</th>
-            <th>Imc</th>
-            <th>Situação</th>
-          </tr>
-        </thead>
+      <div class="layout">
+        <section class="panel panel--form" aria-labelledby="form-title">
+          <h2 id="form-title">Novo cadastro</h2>
 
-        <tbody id="cadastro">
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+          <form id="imc-form" novalidate>
+            <fieldset class="form-grid">
+              <legend>Informações do aluno</legend>
+
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Digite o nome completo"
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="field">
+                <label for="altura">Altura (m)</label>
+                <input
+                  type="number"
+                  id="altura"
+                  name="altura"
+                  placeholder="Ex.: 1.67"
+                  min="0"
+                  step="0.01"
+                  inputmode="decimal"
+                />
+              </div>
+
+              <div class="field">
+                <label for="peso">Peso (kg)</label>
+                <input
+                  type="number"
+                  id="peso"
+                  name="peso"
+                  placeholder="Ex.: 68.5"
+                  min="0"
+                  step="0.1"
+                  inputmode="decimal"
+                />
+              </div>
+            </fieldset>
+
+            <p class="form-message" id="mensagem" aria-live="polite"></p>
+
+            <div class="actions">
+              <button class="button button--primary" type="submit">
+                Calcular
+              </button>
+              <button class="button button--ghost" type="reset">Limpar</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="panel panel--result" aria-labelledby="result-title">
+          <h2 id="result-title">Resultado atual</h2>
+
+          <div class="result-card" id="resultado-card">
+            <p class="result-card__label">IMC</p>
+            <strong class="result-card__value" id="imc-valor">--</strong>
+            <p class="result-card__status" id="imc-situacao">
+              Preencha os dados para calcular.
+            </p>
+          </div>
+
+          <ul class="tips" aria-label="Faixas de classificação do IMC">
+            <li>Abaixo de 18,5: Magreza</li>
+            <li>18,5 a 24,9: Peso adequado</li>
+            <li>25 a 29,9: Sobrepeso</li>
+            <li>30 a 34,9: Obesidade grau I</li>
+            <li>35 a 39,9: Obesidade grau II</li>
+            <li>40 ou mais: Obesidade grau III</li>
+          </ul>
+        </aside>
+      </div>
+
+      <section class="panel panel--table" aria-labelledby="table-title">
+        <div class="panel__header">
+          <h2 id="table-title">Histórico cadastrado</h2>
+          <p>Dados carregados da rota <code>/imc</code> do json-server.</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Altura</th>
+                <th scope="col">Peso</th>
+                <th scope="col">IMC</th>
+                <th scope="col">Situação</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+
+            <tbody id="cadastro">
+              <tr>
+                <td colspan="6">Nenhum registro encontrado.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
 
     <script src="./js/script.js"></script>
   </body>

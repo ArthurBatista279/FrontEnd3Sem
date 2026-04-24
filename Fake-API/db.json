@@ -27,5 +27,49 @@
       "id": "HVipoLUbDEo"
     }
   ],
+  "calculos": [
+    {
+      "n1": 432,
+      "n2": 73,
+      "operacao": "soma",
+      "resultado": "505.00",
+      "id": "cXE4TM5vNPY"
+    },
+    {
+      "n1": 432,
+      "n2": 73,
+      "operacao": "subtracao",
+      "resultado": "359.00",
+      "id": "AlrRvLzjo0E"
+    },
+    {
+      "n1": 432,
+      "n2": 73,
+      "operacao": "multiplicacao",
+      "resultado": "31536.00",
+      "id": "1a22zK96FrI"
+    },
+    {
+      "n1": 37,
+      "n2": 20,
+      "operacao": "soma",
+      "resultado": "57.00",
+      "id": "bAmatAQy-XU"
+    },
+    {
+      "n1": 26,
+      "n2": 51,
+      "operacao": "soma",
+      "resultado": "77.00",
+      "id": "_NETq2duM_c"
+    },
+    {
+      "n1": 26,
+      "n2": 51,
+      "operacao": "subtracao",
+      "resultado": "-25.00",
+      "id": "kLrbKw51GQY"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
