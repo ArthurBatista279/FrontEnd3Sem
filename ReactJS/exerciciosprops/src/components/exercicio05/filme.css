@@ -1,0 +1,72 @@
+.filme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.filme-card:hover {
+  border-color: var(--accent-2);
+  box-shadow: var(--glow);
+  transform: translateY(-3px);
+}
+
+.filme-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.filme-icone {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.filme-titulo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.filme-ano {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.filme-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filme-badge {
+  background: rgba(124, 58, 237, 0.2);
+  color: var(--accent-light);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.filme-nota {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nota-numero {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--warning);
+}
+
+.nota-estrelas {
+  color: var(--warning);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}

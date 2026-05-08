@@ -1,0 +1,50 @@
+.aluno-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.aluno-card:hover {
+  border-color: var(--accent-2);
+  box-shadow: var(--glow);
+  transform: translateY(-3px);
+}
+
+.aluno-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.aluno-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aluno-nome {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.aluno-curso {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.aluno-icone {
+  font-size: 1rem;
+}

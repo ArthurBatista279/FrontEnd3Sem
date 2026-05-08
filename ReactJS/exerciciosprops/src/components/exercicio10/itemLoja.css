@@ -1,0 +1,79 @@
+.item-loja-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.item-loja-card.disponivel {
+  border-left: 4px solid var(--success);
+}
+
+.item-loja-card.indisponivel {
+  border-left: 4px solid var(--danger);
+  opacity: 0.75;
+}
+
+.item-loja-card:hover {
+  box-shadow: var(--glow);
+  transform: translateY(-2px);
+}
+
+.item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.item-nome {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.item-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+.status-ok {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.status-erro {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-categoria {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.item-preco {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.item-estoque {
+  font-size: 0.8rem;
+  color: var(--success);
+  margin-top: 8px;
+}

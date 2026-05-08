@@ -1,0 +1,30 @@
+.saudacao-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 24px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.saudacao-card:hover {
+  border-color: var(--accent-2);
+  box-shadow: var(--glow);
+  transform: translateY(-2px);
+}
+
+.saudacao-icon {
+  font-size: 1.8rem;
+}
+
+.saudacao-texto {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.saudacao-texto strong {
+  color: var(--accent-light);
+}
