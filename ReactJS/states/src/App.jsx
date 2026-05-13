@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import FormularioState from './assets/components/formulariostate/formulariostate';
-import Contador from './assets/components/contador/contador';
+import FormularioState from './components/formulariostate/formulariostate';
+import Contador from './components/contador/contador';
 
 function App() {
   const [titulo, setTitulo] = useState("Brave");
