@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
-body{
 
-    background: linear-gradient(to bottom, #000000, #ff0000);
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #000000, #7c3aed, #f5a3d8);
+  min-height: 100vh;
 }
 
 .cabecalho {
@@ -62,11 +64,13 @@ body{
 .produto {
     text-align: center;
     width: 350px;
-    height: 30%;
-    background-color: transparent;
-    border: 2px solid black;
+    min-height: 380px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 2px solid #ffffff80;
     border-radius: 20px;
     cursor: pointer;
+    padding: 15px;
 }
 
 .produto:hover {

@@ -1,12 +1,15 @@
 import "./App.css"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Produto from "./components/produto/produto";
 
 function App() {
 
   return (
-    <>
-    <Produto />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Produto />} path="/" />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
