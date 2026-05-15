@@ -36,11 +36,37 @@
   gap: 3px;
 }
 
+.contato-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .contato-nome {
   font-size: 1rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 2px;
+}
+
+.contato-favorito {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.contato-favorito:hover {
+  transform: scale(1.2);
+}
+
+.contato-card.favorito {
+  border-color: var(--warning);
+  background: rgba(251, 191, 36, 0.05);
 }
 
 .contato-detalhe {

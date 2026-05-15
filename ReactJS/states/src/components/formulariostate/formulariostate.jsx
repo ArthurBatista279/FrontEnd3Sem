@@ -1,34 +1,42 @@
 import { useState } from 'react';
+import "./formulariostate.css"
 
 function FormularioState() {
-  const [nome, setNome] = useState("sem texto");
+  const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
 
   return (
-    <div>
-      <h2>Formulario com State</h2>
+    <div className="form-state-container">
+      <h2>Perfil do Usuário</h2>
       
-      <label htmlFor="nome">Nome:</label>
-      <input 
-        type="text" 
-        placeholder="Digite seu nome" 
-        onChange={(evento) => setNome(evento.target.value)} 
-      />
+      <div className="form-group">
+        <label htmlFor="nome">Primeiro Nome</label>
+        <input 
+          className="form-input"
+          type="text" 
+          id="nome"
+          placeholder="Ex: João" 
+          onChange={(evento) => setNome(evento.target.value)} 
+        />
+      </div>
       
-      <br />
-        
-      <label htmlFor="sobrenome">Sobrenome:</label>
-      <input 
-        type="text" 
-        placeholder="Digite seu sobrenome" 
-        onChange={(evento) => setSobrenome(evento.target.value)} 
-      />
+      <div className="form-group">
+        <label htmlFor="sobrenome">Sobrenome</label>
+        <input 
+          className="form-input"
+          type="text" 
+          id="sobrenome"
+          placeholder="Ex: Silva" 
+          onChange={(evento) => setSobrenome(evento.target.value)} 
+        />
+      </div>
 
-      <br />
-
-      <label>
-        Texto Digitado: <strong>{nome} {sobrenome}</strong>
-      </label>
+      {(nome || sobrenome) && (
+        <div className="result-preview">
+          <label>Identificação Gerada</label>
+          <strong>{nome} {sobrenome}</strong>
+        </div>
+      )}
     </div>
   );
 }

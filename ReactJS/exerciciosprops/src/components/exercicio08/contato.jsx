@@ -1,13 +1,24 @@
+import { useState } from "react";
 import "./contato.css";
 
 function Contato({ nome, telefone, email }) {
+  const [favorito, setFavorito] = useState(false);
+
   return (
-    <div className="contato-card">
+    <div className={`contato-card ${favorito ? "favorito" : ""}`}>
       <div className="contato-avatar">
         {nome.charAt(0).toUpperCase()}
       </div>
       <div className="contato-info">
-        <h3 className="contato-nome">{nome}</h3>
+        <div className="contato-header">
+          <h3 className="contato-nome">{nome}</h3>
+          <button 
+            className={`contato-favorito ${favorito ? "is-favorito" : ""}`}
+            onClick={() => setFavorito(!favorito)}
+          >
+            {favorito ? "⭐" : "☆"}
+          </button>
+        </div>
         <p className="contato-detalhe">
           <span>Fone:</span> {telefone}
         </p>

@@ -51,3 +51,25 @@
   color: var(--accent-light);
   font-weight: 600;
 }
+
+.perfil-botao {
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent-light);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.perfil-botao:hover {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.perfil-botao.seguindo {
+  background: var(--accent);
+  color: white;
+}

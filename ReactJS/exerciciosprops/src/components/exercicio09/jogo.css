@@ -50,3 +50,27 @@
   font-weight: 700;
   color: var(--success);
 }
+
+.jogo-botao {
+  margin-top: 8px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.jogo-botao:hover {
+  filter: brightness(1.2);
+}
+
+.btn-comprado {
+  background: var(--success);
+}
+
+.jogo-card.comprado {
+  border-color: var(--success);
+}

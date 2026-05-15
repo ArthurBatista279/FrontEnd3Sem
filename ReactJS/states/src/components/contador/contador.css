@@ -1,0 +1,41 @@
+.contador-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.contador-valor {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: var(--mono);
+  text-shadow: 0 4px 10px var(--accent-bg);
+}
+
+.contador-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.contador-btn {
+  background: var(--accent);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.contador-btn:hover {
+  background: var(--accent-hover);
+  transform: scale(1.1) rotate(90deg);
+}
