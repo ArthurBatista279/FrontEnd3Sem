@@ -1,4 +1,29 @@
 {
-  "produtos": [],
+  "produtos": [
+    {
+      "nome": "Notebook Gamer",
+      "descricao": "Gamer bem gaymer",
+      "preco": 6500,
+      "quantidade": 8,
+      "imagem": "image.jpg",
+      "id": "y9rYXl6GQn8"
+    },
+    {
+      "nome": "AAAA",
+      "descricao": "214",
+      "preco": 14,
+      "quantidade": 15,
+      "imagem": "image.jpg",
+      "id": "v14MtBLu_nM"
+    },
+    {
+      "nome": "AAA",
+      "descricao": "22",
+      "preco": 33,
+      "quantidade": 33,
+      "imagem": "image.jpg",
+      "id": "3OvmyKMRuy8"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

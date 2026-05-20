@@ -1,6 +1,7 @@
 import "./produto.css"
 import { useEffect, useState } from "react"
 import img from '../../assets/image.jpg'
+import api from "../../services/services"
 
 export default function Produto() {
     //States e variaveis
@@ -16,11 +17,10 @@ export default function Produto() {
 
     //Ciclo de vida e funcoes
     async function cadastrarProduto(e) {
-        e.preventDefault() // nao deixa o formulario ser postado
+        e.preventDefault() 
 
-        // validar o formulario
         if (nome.trim().length === 0 || descricao.trim().length === 0 ||
-            isNaN(preco) || isNaN(quantidade)
+            isNaN(preco) || preco <= 0 || isNaN(quantidade) || quantidade <= 0
         ) {
             alert("Preencha os campos corretamente")
             return
@@ -37,20 +37,13 @@ export default function Produto() {
         console.log(objtocadastro);
 
         try {
-            const retornoAPI = await fetch("http://localhost:3000/produtos", {
-                method: "POST",
-                body: JSON.stringify(objtocadastro),
+            const retornoAPI = await api.post("/produtos", objtocadastro, {
                 headers: {
                     "Content-Type": "application/json; charset=UTF-8"
                 }
             })
 
-            console.log(retornoAPI);
-            if (!retornoAPI.ok) {
-                throw new Error(`Erro na API: ${retornoAPI.status}`);
-            }
-
-            const dadosCadastrados = await retornoAPI.json();
+            const dadosCadastrados = retornoAPI.data;
             console.log(dadosCadastrados);
             setArrProdutos((prev) => [...prev, dadosCadastrados]);
             LimparFormulario();
@@ -62,16 +55,17 @@ export default function Produto() {
 
     async function editarProduto(e) {
         e.preventDefault()
-
-        if (!selectedProduto) {
-            alert("Nenhum produto selecionado para editar")
+        
+        // validar o formulario
+        if (nome.trim().length === 0 || descricao.trim().length === 0 ||
+            isNaN(preco) || preco <= 0 || isNaN(quantidade) || quantidade <= 0
+        ) {
+            alert("Preencha os campos corretamente")
             return
         }
 
-        if (nome.trim().length === 0 || descricao.trim().length === 0 ||
-            isNaN(preco) || isNaN(quantidade)
-        ) {
-            alert("Preencha os campos corretamente")
+        if (!selectedProduto) {
+            alert("Nenhum produto selecionado para editar")
             return
         }
 
@@ -84,19 +78,13 @@ export default function Produto() {
         }
 
         try {
-            const retornoAPI = await fetch(`http://localhost:3000/produtos/${selectedProduto.id}`, {
-                method: "PUT",
-                body: JSON.stringify(objtoeditar),
+            const retornoAPI = await api.put(`/produtos/${selectedProduto.id}`, objtoeditar, {
                 headers: {
                     "Content-Type": "application/json; charset=UTF-8"
                 }
             })
 
-            if (!retornoAPI.ok) {
-                throw new Error(`Erro na API: ${retornoAPI.status}`)
-            }
-
-            const produtoAtualizado = await retornoAPI.json()
+            const produtoAtualizado = retornoAPI.data
             console.log(produtoAtualizado)
             setEditar(false)
             setSelectedProduto(null)
@@ -123,13 +111,9 @@ export default function Produto() {
 
     async function getDados() {
         try {
-            const retornoAPI = await fetch("http://localhost:3000/produtos")
+            const retornoAPI = await api.get("/produtos")
 
-            if (!retornoAPI.ok) {
-                throw new Error(`Erro na API: ${retornoAPI.status}`)
-            }
-
-            const dados = await retornoAPI.json();
+            const dados = retornoAPI.data;
             console.log(dados);
             setArrProdutos(dados)
         } catch (error) {
@@ -139,14 +123,13 @@ export default function Produto() {
     }
 
     async function deletar(id) {
-        try {
-            const retornoAPI = await fetch(`http://localhost:3000/produtos/${id}`, {
-                method: "DELETE"
-            })
+        const confirmar = window.confirm("Tem certeza que deseja deletar este produto?")
+        if (!confirmar) {
+            return
+        }
 
-            if (!retornoAPI.ok) {
-                throw new Error(`Erro na API: ${retornoAPI.status}`)
-            }
+        try {
+            await api.delete(`/produtos/${id}`)
 
             const novaLista = arrProdutos.filter((prod) => prod.id !== id)
             setArrProdutos(novaLista)
