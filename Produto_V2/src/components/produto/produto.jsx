@@ -10,7 +10,7 @@ export default function Produto() {
     const [quantidade, setQuantidade] = useState(0)
     const [imagem, setImagem] = useState(img)
     const [editar, setEditar] = useState(false)
-    const [currentId, setCurrentId] = useState(null)
+    const [selectedProduto, setSelectedProduto] = useState(null)
 
     const [arrProdutos, setArrProdutos] = useState([])
 
@@ -63,7 +63,7 @@ export default function Produto() {
     async function editarProduto(e) {
         e.preventDefault()
 
-        if (!currentId) {
+        if (!selectedProduto) {
             alert("Nenhum produto selecionado para editar")
             return
         }
@@ -84,7 +84,7 @@ export default function Produto() {
         }
 
         try {
-            const retornoAPI = await fetch(`http://localhost:3000/produtos/${currentId}`, {
+            const retornoAPI = await fetch(`http://localhost:3000/produtos/${selectedProduto.id}`, {
                 method: "PUT",
                 body: JSON.stringify(objtoeditar),
                 headers: {
@@ -99,7 +99,7 @@ export default function Produto() {
             const produtoAtualizado = await retornoAPI.json()
             console.log(produtoAtualizado)
             setEditar(false)
-            setCurrentId(null)
+            setSelectedProduto(null)
             LimparFormulario()
             await getDados()
         } catch (error) {
@@ -114,7 +114,7 @@ export default function Produto() {
         setDescricao("")
         setQuantidade(0)
         setImagem(img)
-        setCurrentId(null)
+        setSelectedProduto(null)
     }
 
     useEffect(() => {
@@ -174,7 +174,7 @@ export default function Produto() {
                 {editar && (
                     <button type="button" className="btn--cadastro" onClick={() => {
                         setEditar(false)
-                        setCurrentId(null)
+                        setSelectedProduto(null)
                         LimparFormulario()
                     }}>
                         Cancelar
@@ -200,7 +200,7 @@ export default function Produto() {
                             setDescricao(prod.descricao)
                             setQuantidade(prod.quantidade)
                             setEditar(true)
-                            setCurrentId(prod.id)
+                            setSelectedProduto(prod)
                         }}>Editar</a>
 
                         <a href="#" onClick={(e) => {
