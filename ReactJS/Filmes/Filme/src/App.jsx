@@ -1,5 +1,5 @@
 import './App.css'
-import Rotas from './Routes/routes'
+import Rotas from './routes/Routes'
 
 const App = () => <Rotas />
 
