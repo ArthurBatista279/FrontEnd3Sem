@@ -38,12 +38,12 @@ const Lista = (props) => {
                                             {props.tipoLista === "filme" ? (item.genero?.nome || '-') : '-'}
                                         </td>
                                         <td data-cell="Editar">
-                                            <button className="icon" onClick={() => props.funcEditar(item.id ?? item.idGenero)}>
+                                            <button className="icon" onClick={() => props.funcEditar(item)}>
                                                 <img src={Editar} alt="Caneta" />
                                             </button>
                                         </td>
                                         <td data-cell="Excluir">
-                                            <button className="icon" onClick={() => props.funcExcluir(item.id ?? item.idGenero)}>
+                                            <button className="icon" onClick={() => props.funcExcluir(item)}>
                                                 <img src={Excluir} alt="Lixeira" />
                                             </button>
                                         </td>
