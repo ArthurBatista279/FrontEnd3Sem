@@ -14,10 +14,6 @@ const CadastroGenero = () => {
   const [editar, setEditar] = useState(false);
   const [id, setId] = useState(0);
 
-  useEffect(() => {
-    getGenero();
-  }, []);
-
   const getGenero = async () => {
     try {
       const retornoAPI = await api.get("/generos");
@@ -95,8 +91,8 @@ const CadastroGenero = () => {
       const retornoAPI = await api.delete(`/generos/${item.idGenero}`);
       if (retornoAPI.status == 200 || retornoAPI.status == 204) {
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "Deletado!",
+          text: "O gênero foi excluído com sucesso!",
           icon: "success",
         });
         await getGenero();
@@ -159,6 +155,10 @@ const CadastroGenero = () => {
       });
     }
   };
+
+  useEffect(() => {
+    getGenero();
+  }, []);
 
   return (
     <>
