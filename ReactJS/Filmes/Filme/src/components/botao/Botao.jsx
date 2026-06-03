@@ -8,7 +8,7 @@ const Botao = (props) => {
         type={props.btnEditar ? "button" : "submit"}
         onClick={()=>{
             if(props.btnEditar){
-                    props.cancelarEdicao()
+                    props.cancelarEdicao?.()
                 }
             }}
         >    

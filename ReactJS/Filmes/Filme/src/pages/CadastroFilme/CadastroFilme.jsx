@@ -1,7 +1,7 @@
 import "./CadastroFilme.css";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import Cadastro from "../../components/Cadastro/Cadastro";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import Cadastro from "../../components/cadastro/Cadastro";
 import Lista from "../../components/lista/Lista";
 import { useEffect, useState } from "react";
 import api from "../../services/Services";
@@ -11,12 +11,13 @@ import Alerta from "../../components/alerta/Alerta";
 const CadastroFilme = () => {
   const [valor, setValor] = useState("");
   const [idGenero, setIdGenero] = useState("");
+  const [imagem, setImagem] = useState(null);
+  const [imagemKey, setImagemKey] = useState(Date.now());
   const [editar, setEditar] = useState(false);
   const [idEditar, setIdEditar] = useState(0);
   const [listaFilmes, setListaFilmes] = useState([]);
   const [listaGeneros, setListaGeneros] = useState([]);
 
-  // Busca gêneros cadastrados na API
   const getGeneros = async () => {
     try {
       const retornoAPI = await api.get("/generos");
@@ -33,25 +34,28 @@ const CadastroFilme = () => {
     }
   };
 
-  // Busca filmes da API e formata os dados
   const getFilmes = async (generosCarregados = listaGeneros) => {
     try {
       const retornoAPI = await api.get("/filmes");
-      
-      const generos = generosCarregados.length > 0 ? generosCarregados : await getGeneros();
+
+      const generos =
+        generosCarregados.length > 0 ? generosCarregados : await getGeneros();
 
       const filmesFormatados = retornoAPI.data.map((filme) => {
-        const generoEncontrado = generos.find(g => g.idGenero === filme.idGenero);
+        const generoEncontrado = generos.find(
+          (g) => g.idGenero == filme.idGenero,
+        );
         return {
           id: filme.idFilme,
           titulo: filme.titulo,
           idGenero: filme.idGenero,
+          imagem: filme.imagem,
           genero: {
-            nome: generoEncontrado ? generoEncontrado.nome : "Não cadastrado"
-          }
+            nome: generoEncontrado ? generoEncontrado.nome : "Não cadastrado",
+          },
         };
       });
-      
+
       setListaFilmes(filmesFormatados);
     } catch (error) {
       console.log(error);
@@ -63,7 +67,6 @@ const CadastroFilme = () => {
     }
   };
 
-  // Efeito para carregar dados iniciais
   useEffect(() => {
     const inicializar = async () => {
       const generos = await getGeneros();
@@ -72,7 +75,6 @@ const CadastroFilme = () => {
     inicializar();
   }, []);
 
-  // Cadastra um novo filme
   const cadastrarFilme = async (e) => {
     e.preventDefault();
 
@@ -97,6 +99,9 @@ const CadastroFilme = () => {
     const formData = new FormData();
     formData.append("titulo", valor);
     formData.append("idGenero", idGenero);
+    if (imagem) {
+      formData.append("imagem", imagem);
+    }
 
     try {
       await api.post("/filmes", formData, {
@@ -123,7 +128,6 @@ const CadastroFilme = () => {
     }
   };
 
-  // Edita um filme existente
   const editarFilme = async (e) => {
     e.preventDefault();
 
@@ -148,6 +152,9 @@ const CadastroFilme = () => {
     const formData = new FormData();
     formData.append("titulo", valor);
     formData.append("idGenero", idGenero);
+    if (imagem) {
+      formData.append("imagem", imagem);
+    }
 
     try {
       await api.put(`/filmes/${idEditar}`, formData, {
@@ -174,15 +181,15 @@ const CadastroFilme = () => {
     }
   };
 
-  // Prepara o formulário para edição
   const PreEditar = (item) => {
     setValor(item.titulo);
     setIdGenero(item.idGenero || "");
     setEditar(true);
     setIdEditar(item.id);
+    setImagem(null);
+    setImagemKey(Date.now());
   };
 
-  // Exclui um filme
   const excluirFilme = async (item) => {
     const result = await Swal.fire({
       title: "Tem certeza que deseja excluir?",
@@ -225,12 +232,13 @@ const CadastroFilme = () => {
     }
   };
 
-  // Limpa o formulário e reseta o estado de edição
   const limparFormulario = () => {
     setValor("");
     setIdGenero("");
     setEditar(false);
     setIdEditar(0);
+    setImagem(null);
+    setImagemKey(Date.now());
   };
 
   return (
@@ -246,6 +254,9 @@ const CadastroFilme = () => {
           setValor={setValor}
           valorSelect={idGenero}
           setValorSelect={setIdGenero}
+          comImagem={true}
+          imagemKey={imagemKey}
+          setImagem={setImagem}
           btnEditar={editar}
           cancelarEdicao={limparFormulario}
           listaGeneros={listaGeneros}

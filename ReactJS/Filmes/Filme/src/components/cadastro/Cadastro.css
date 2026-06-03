@@ -37,7 +37,8 @@
 
 /* modificando o input e select */
 .campo_cad_nome input,
-.campo_cad_genero select
+.campo_cad_genero select,
+.campo_cad_imagem input
 {
     border:none;
     border-radius: 6px;
@@ -51,8 +52,16 @@
     margin-top: 7px;
 }
 
+.campo_cad_imagem input {
+    background-color: white;
+    color: black;
+    padding: 3px 5px;
+    box-sizing: border-box;
+}
+
 .campo_cad_genero,
-.campo_cad_nome{
+.campo_cad_nome,
+.campo_cad_imagem{
     display: flex;
     flex-direction: column;
 }
