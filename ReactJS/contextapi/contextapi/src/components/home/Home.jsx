@@ -7,7 +7,10 @@ const Home = () => {
   return (
     <>
       <h2>Home</h2>
-      <p>Bem-vindo, {usuario}!</p>
+      <p>
+        Bem-vindo, {usuario ? usuario : "visitante"}! Faça login em Perfil para
+        acessar páginas privadas.
+      </p>
     </>
   );
 };

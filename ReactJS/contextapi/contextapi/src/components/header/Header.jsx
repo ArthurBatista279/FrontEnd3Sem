@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { UsuarioContext } from "../../context/UsuarioContext"
 
 const Header = () => {
-  const { usuario } = useContext(UsuarioContext)
+  const { usuario, sair } = useContext(UsuarioContext)
 
   return (
     <header>
@@ -12,7 +12,12 @@ const Header = () => {
         <Link to="/perfil">Perfil</Link>
         <Link to="/mypage">My Blog</Link>
         <Link to="/produtos">Produtos</Link>
-        <span>({usuario})</span>
+        <span>({usuario ? usuario : "visitante"})</span>
+        {usuario && (
+          <button type="button" onClick={sair}>
+            Sair
+          </button>
+        )}
       </nav>
     </header>
   )
