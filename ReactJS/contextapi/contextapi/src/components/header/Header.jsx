@@ -1,16 +1,21 @@
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import { UsuarioContext } from "../../context/UsuarioContext"
+
 const Header = () => {
+  const { usuario } = useContext(UsuarioContext)
+
   return (
+    <header>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/perfil">Perfil</Link>
+        <Link to="/mypage">My Blog</Link>
+        <Link to="/produtos">Produtos</Link>
+        <span>({usuario})</span>
+      </nav>
+    </header>
+  )
+}
 
-    <Header>
-        <nav>
-            <link to="/">Home</link>
-            <link to="/perfil">Perfil</link>
-            <link to="/mypage">Mypage</link>
-            <span>({usuario})</span>
-        </nav>
-    </Header>
-
-  );
-};
-
-export default Header; 
+export default Header
