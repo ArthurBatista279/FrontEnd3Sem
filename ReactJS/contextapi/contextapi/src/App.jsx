@@ -13,8 +13,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/perfil" element={<Perfil />} />
+
           <Route
             path="/mypage"
             element={
@@ -23,9 +25,10 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/produtos"
-            element={
+            element={ 
               <PrivateRoute>
                 <Produtos />
               </PrivateRoute>
